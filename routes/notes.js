@@ -1,9 +1,12 @@
 const express = require('express')
-const User = require("../models/User")
+const Notes = require("../models/Notes.js")
 const routes = express.Router()
 
 routes.get('/', (req,res) => {
-    res.send("Hello From notes.js")
+    console.log(req.body)
+    const note = Notes.req.body
+    note.save()
+    res.send(req.body)
 } )
 
 module.exports = routes

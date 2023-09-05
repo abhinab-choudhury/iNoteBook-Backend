@@ -8,8 +8,7 @@ const UserSchema = new Schema({
     },
     last_name:{
         type:String,
-        require:true,
-        unique: true
+        require:true
     },
     username: {
         type:String,

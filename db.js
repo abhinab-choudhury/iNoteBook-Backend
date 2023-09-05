@@ -1,14 +1,11 @@
 const mongoose = require("mongoose")
-const mongoURI = "mongodb://localhost:27017"
+const mongoURI = "mongodb://127.0.0.1:27017/iNoteBook"
 
-const connectToMongoDB = () => {
+const connectToMongoDB = async() => {
     
-    if(mongoose.connect(mongoURI)) {
+    if(await mongoose.connect(mongoURI)) {
         console.log("Connection Successfull")
-    } else {
-        console.log("Connection Failed")
-        return
-    }
+    } 
 
 }
 
