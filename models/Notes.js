@@ -13,6 +13,10 @@ const NoteScheme = new Schema({
     tag:{
         type:String
     },
+    user_email:{
+        type:String,
+        require:true,
+    },
     date:{
         type:Date,
         default: Date.now,
@@ -20,4 +24,6 @@ const NoteScheme = new Schema({
     }
 })
 
-module.exports = mongoose.model("notes",NoteScheme)
+const note = mongoose.model("notes",NoteScheme)
+note.createIndexes()
+module.exports = note

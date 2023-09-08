@@ -1,8 +1,12 @@
+require("dotenv").config() // Helps Acccess .env.local file
 const express = require('express')
 const User = require('../models/User')
 const { body, validationResult } = require('express-validator')
 const router = express.Router();
+const bcrypt = require('bcryptjs') // Generate hash for passoword
+const jwt = require('jsonwebtoken')
 
+const JWT_SECRET = process.env.JWT_KEY
 
 // Create Endpoint for user registration. at /auth/v1/signin
 router.post('/', [
@@ -23,20 +27,30 @@ router.post('/', [
         let check_user = await User.findOne({email: req.body.email})
         // check if there exixts a user already with same email adderess....
         if(check_user) {
-            return res.status(500).json({error:"User with this Email already exists."})
+            return res.status(400).json({error:"User with this Email already exists."})
         }
         
+        const SALT = await bcrypt.genSalt(10)
+        const SECURED_PASSWORD = await bcrypt.hash(req.body.password, SALT)
         // create user
-        await User.create({
+        const user = await User.create({
             username: req.body.username,
-            password: req.body.password,
+            password: SECURED_PASSWORD,
             email: req.body.email,
             first_name: req.body.first_name,
             last_name: req.body.last_name
-        }).then(user => res.json(user))
+        })
+        const data = {
+            user:{
+                id:user.id
+            }
+        }
+
+        const token = jwt.sign(data, JWT_SECRET);
+        res.json({token})
         
     } catch (error) {
-        res.status(500).json({ "message": "Something went wrong" })
+        res.status(400).json({ "message": error.message })
     }
 
 })
