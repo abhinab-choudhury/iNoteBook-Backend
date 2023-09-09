@@ -35,6 +35,32 @@ This project does not use vite or create-react-app is the written in javascript 
 ``` bash
     npm install
 ```
+4. start the mongdb server
+   > **_NOTE:_** If you areusing Linux
+   > Install [mongDB, MongoDB Shell](https://www.mongodb.com/) and
+   > then run
+   > ```
+   >    sudo systemctl status mongod
+   > ```
+   > to stop, run
+   > ```
+   >    sudo systemctl stop mongod
+   > ```
+   > to check weather it is running or not, run
+   > ```
+   >    sudo systemctl status mongod
+   > ```
+   >
+   > Now you can start the server and start using mongoDB Shell
+   > to tun MongoDB Shell in CLI, run
+   > ```
+   >     mongosh
+   > ```
+   
+5. start the server 
+``` bash
+   nodemon index.js
+```
 
 # Endpoints
 
