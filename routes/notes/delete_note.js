@@ -18,7 +18,7 @@ router.delete('/:id', fetchuser, async (req,res) => {
     
         return  res.status(200).send("Deletion Successful")
     } catch (error) {
-        res.status(500).json({ "erroe": error.message})
+        res.status(500).json({ "error": "Internal Server Error"})
     }
 })
 

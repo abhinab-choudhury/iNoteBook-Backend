@@ -32,7 +32,7 @@ router.put('/:id',fetchuser, async(req, res) => {
         const created_note = await Notes.findByIdAndUpdate(id=req.params.id,{$set: newNote}, {new:true})
         res.status(200).json(created_note)
     } catch (error) {
-        res.status(500).json({ "erroe": error.message})
+        res.status(500).json({ "error": "Internal Server Error"})
     }
 })
 
