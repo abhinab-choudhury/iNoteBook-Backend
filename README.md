@@ -1,8 +1,8 @@
 
-[<img style="margin:7px;" width="100" height="100" src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" >](https://nodejs.org/en/docs)
-[<img style="margin:7px;" width="100" height="100" src="https://img.icons8.com/nolan/100/express-js.png" alt="express-js"/>](https://expressjs.com/en/starter/installing.html)
-[<img style="margin:7px;" width="100" height="100" src="https://img.icons8.com/color/100/mongodb.png" alt="mongodb"/>](https://www.mongodb.com/docs/)
-[<img style="margin:7px;" width="100" height="100" src="https://img.icons8.com/clouds/100/spiral-bound-booklet.png" >]()
+[<img style="margin:10px;" width="100" height="100" src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" >](https://nodejs.org/en/docs)
+[<img style="margin:10px;" width="100" height="100" src="https://img.icons8.com/nolan/100/express-js.png" alt="express-js"/>](https://expressjs.com/en/starter/installing.html)
+[<img style="margin:10px;" width="100" height="100" src="https://img.icons8.com/color/100/mongodb.png" alt="mongodb"/>](https://www.mongodb.com/docs/)
+[<img style="margin:10px;" width="100" height="100" src="https://img.icons8.com/clouds/100/spiral-bound-booklet.png" >]()
 
 
 # iNoteBook-Backend
