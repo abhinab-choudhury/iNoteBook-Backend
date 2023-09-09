@@ -12,6 +12,7 @@ const UserSchema = new Schema({
     },
     username: {
         type:String,
+        require:true,
         require:true
     },
     email: {

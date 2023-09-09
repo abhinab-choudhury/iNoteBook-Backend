@@ -1,6 +1,6 @@
 require("dotenv").config() // Helps Acccess .env.local file
 const express = require('express')
-const User = require('../models/User')
+const User = require('../../models/User')
 const { body, validationResult } = require('express-validator')
 const router = express.Router();
 const bcrypt = require('bcryptjs') // Generate hash for passoword
@@ -19,15 +19,30 @@ router.post('/', [
 ], async (req, res) => {
     const error = validationResult(req)
     
+    // validated the data entered
     if (!error.isEmpty()) {
-        return res.status(400).json({ "error": error })
+        return res.status(400).json({ "error": error})
+    }
+    else if(req.body.password !== req.body.confirmPassword) {
+        // check if the password and Confirm Password are same or not 
+        // if different returns a "password mismatch" error.
+        return res.status(400).json({ "error": "password mismatch" })
     }
 
     try {
-        let check_user = await User.findOne({email: req.body.email})
-        // check if there exixts a user already with same email adderess....
-        if(check_user) {
-            return res.status(400).json({error:"User with this Email already exists."})
+        let check_user_email = await User.findOne({email: req.body.email})
+        // check if there exists a user already with same email adderess....
+
+        let check_user_username = await User.findOne({username: req.body.username})
+        // check if there exists a user already with same username....
+
+        if(check_user_email){
+            return res.status(400).json({error:"email already in user"})
+            // now if the user with the email already exists then we can redirect
+            // him to `/login` or `/changePassword`
+        }
+        else if(check_user_username) {
+            return res.status(400).json({error:"username not avilable"})
         }
         
         const SALT = await bcrypt.genSalt(10)
@@ -50,7 +65,7 @@ router.post('/', [
         res.json({token})
         
     } catch (error) {
-        res.status(400).json({ "message": error.message })
+        res.status(500).json({ "message": "Internal Server Erroe"})
     }
 
 })
