@@ -47,3 +47,7 @@ This project does not use vite or create-react-app is the written in javascript 
 - ```/get_all_notes : Endpoint to get notes from signed-in user.``` 
 - ```/update_note : Endpoint to update data into database.```
 - ```/delete_note : Endpoint to delet notes for the signed-in user in database.```
+
+
+source:
+<a  href="https://icons8.com"></a> icon by <a href="https://icons8.com">Icons8</a> and some other sources  in internet
