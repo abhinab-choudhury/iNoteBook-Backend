@@ -65,7 +65,7 @@ router.post('/', [
         res.json({token})
         
     } catch (error) {
-        res.status(500).json({ "message": "Internal Server Erroe"})
+        res.status(500).json({ "message": error.message})
     }
 
 })

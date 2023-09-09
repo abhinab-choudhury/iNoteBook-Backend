@@ -11,7 +11,7 @@ An API that deals with user sign-in and login is a critical component of iNoteBo
 
 ### Libraries used:
 
-- Express.js 
+- Express.js
 - mongoose
 - bcrypt.js
 - nodemon
@@ -41,7 +41,7 @@ This project does not use vite or create-react-app is the written in javascript 
 - ```/signin : Endpoint for user sign-in.```
 - ```/signout : Endpoint to log users out and invalidate their session.```
 - ```/userInfo : Endpoint to get information about the signed-in user.```
-- ```/addnote: Endpoint to add data into database.```
-- ```/getallnotes : Endpoint to get notes from signed-in user.``` 
-- ```/update : Endpoint to update data into database.```
-- ```/delete : Endpoint to delet notes for the signed-in user in database.```
+- ```/add_note: Endpoint to add data into database.```
+- ```/get_all_notes : Endpoint to get notes from signed-in user.``` 
+- ```/update_note : Endpoint to update data into database.```
+- ```/delete_note : Endpoint to delet notes for the signed-in user in database.```

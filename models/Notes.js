@@ -2,6 +2,10 @@ const mongoose = require("mongoose")
 const { Schema } = mongoose
 
 const NoteScheme = new Schema({
+    user:{
+        type:mongoose.Schema.ObjectId,
+        require: true
+    },
     title:{
         type:String,
         require:true
@@ -12,10 +16,6 @@ const NoteScheme = new Schema({
     },
     tag:{
         type:String
-    },
-    user_email:{
-        type:String,
-        require:true,
     },
     date:{
         type:Date,

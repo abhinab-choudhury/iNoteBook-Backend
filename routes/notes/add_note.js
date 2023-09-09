@@ -1,35 +1,29 @@
 const express = require('express')
 const Notes = require("../../models/Notes")
-const User = require('../../models/User')
 const { body, validationResult } = require('express-validator')
 const routes = express.Router()
+const fetchuser = require('../../middlewares/fetchuser')
 
-routes.get('/',[
-    body('title').exists(),
-    body('note').exists(),
-    body('user_email').isEmail()
-], async(req,res) => {
-    const error = validationResult(req)
-    if(!error.isEmpty()) {
-        return res.status(400).json({"error":"Invalid Input"})
-    }
+routes.post('/',[
+    body('title', 'Title must be at-least 2 Characters').isLength({min: 5}),
+    body('note', 'Notes must be at-least 10 Characters').isLength({min: 10}),
+], fetchuser ,async(req,res) => {
 
     try {
-        let user = await User.findOne({email:req.body.user_email}) // Gets the user via enter email Address in User Collection
-        console.log(user)
-        if(!user) {
-            return res.status(400).json({"error" : "user not Found"})
+        const error = validationResult(req)
+        if(!error.isEmpty()) {
+            return res.status(400).json({errors: error.array()})
         }
         const note = await Notes.create({
+            user:req.user.id,
             title: req.body.title,
             note:req.body.note,
-            user_email:req.body.user_email,
             tag:req.body.tag
         })
 
         return res.json(note)
     } catch (error) {
-        res.status(500).json({ "erroe": "Internal Server Erroe"})
+        res.status(500).json({ "erroe": "Internal Server Error"})
     }
 } )
 
