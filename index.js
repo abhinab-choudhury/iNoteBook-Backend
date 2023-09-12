@@ -16,7 +16,7 @@ app.use('/api/v1/userInfo', require('./routes/authentication/user_Info')) // End
 // app.use('/api/v1/forgot-password', require('./routes/forget_password')) // Endpoint to initiate the password recovery process.
 // app.use('/api/v1/reset-password', require('./routes/reset_password')) Endpoint to reset the user's password after successful recovery.
 app.use('/api/v1/add_note', require('./routes/notes/add_note')) // Endpoint to add data into database 
-app.use('/api/v1/add_note', require('./routes/notes/get_all_notes')) // Endpoint to get notes from signed-in user
+app.use('/api/v1/get_all_notes', require('./routes/notes/get_all_notes')) // Endpoint to get notes from signed-in user
 app.use('/api/v1/update_note', require('./routes/notes/update_notes')) // Endpoint to update data into database
 app.use('/api/v1/delete_note', require('./routes/notes/delete_note')) // Endpoint to delete data into database
 

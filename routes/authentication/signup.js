@@ -1,4 +1,9 @@
-require("dotenv").config() // Helps Acccess .env.local file
+var dotenv = require('dotenv')
+var dotenvExpand = require('dotenv-expand')
+var myEnv = dotenv.config()
+
+dotenvExpand.expand(myEnv)
+
 const express = require('express')
 const User = require('../../models/User')
 const { body, validationResult } = require('express-validator')
@@ -6,7 +11,7 @@ const router = express.Router();
 const bcrypt = require('bcryptjs') // Generate hash for passoword
 const jwt = require('jsonwebtoken')
 
-const JWT_SECRET = process.env.JWT_KEY
+const JWT_SECRET = process.env.VITE_JWT_KEY
 
 // Create Endpoint for user registration. at /auth/v1/signin
 router.post('/', [
