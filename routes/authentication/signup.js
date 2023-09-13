@@ -1,6 +1,6 @@
-var dotenv = require('dotenv')
-var dotenvExpand = require('dotenv-expand')
-var myEnv = dotenv.config()
+const dotenv = require('dotenv')
+const dotenvExpand = require('dotenv-expand')
+const myEnv = dotenv.config()
 
 dotenvExpand.expand(myEnv)
 
@@ -11,7 +11,7 @@ const router = express.Router();
 const bcrypt = require('bcryptjs') // Generate hash for passoword
 const jwt = require('jsonwebtoken')
 
-const JWT_SECRET = process.env.VITE_JWT_KEY
+const JWT_SECRET = process.env.VITE_REACT_APP_JWT_KEY
 
 // Create Endpoint for user registration. at /auth/v1/signin
 router.post('/', [

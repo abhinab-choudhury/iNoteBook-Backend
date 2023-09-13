@@ -5,7 +5,7 @@ var myEnv = dotenv.config()
 dotenvExpand.expand(myEnv)
 const jwt = require('jsonwebtoken');
 
-const JWT_SECRET = process.env.VITE_JWT_KEY
+const JWT_SECRET = process.env.VITE_REACT_APP_JWT_KEY
 console.log(JWT_SECRET)
 
 const fetchuser = (req, res, next) => {
