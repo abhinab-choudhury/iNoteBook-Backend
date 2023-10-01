@@ -40,7 +40,7 @@ This project does not use vite or create-react-app is the written in javascript 
    > Install [mongDB, MongoDB Shell](https://www.mongodb.com/) and
    > then run
    > ```
-   >    sudo systemctl status mongod
+   >    sudo systemctl start mongod
    > ```
    > to stop, run
    > ```
